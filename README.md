@@ -1,6 +1,6 @@
 # NasNet_Pytorch
 
-Using pre-trained nasnet model inference a photo via pytorch
+Using a pre-trained nasnet model to inference a photo via pytorch
 
 ## Usage 
 
