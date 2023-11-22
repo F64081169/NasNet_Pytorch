@@ -50,10 +50,11 @@ class CustomDataset(Dataset):
 
 # Load the NASNet model
 nasnet_model = pm.inceptionv3(num_classes=1000, pretrained=dataset_name)
+# nasnet_model = pm.nasnetalarge(num_classes=1000, pretrained=dataset_name)
 nasnet_model.eval()
 transform = utils.TransformImage(nasnet_model)
 # Create a DataLoader for parallel processing
-dataset = CustomDataset(img_path, transform=transform, num_samples=num_test_data_per_process)
+dataset = CustomDataset(img_path, transform=transform, num_samples=num_test_data_per_process*num_processes)
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False, num_workers=num_processes)
 
 for batch in dataloader:
